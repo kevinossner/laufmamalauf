@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react"
 import React from 'react'
+import Table from 'react-bootstrap/Table';
+
+
 
 const UsersListPage = () => {
 
@@ -15,11 +18,37 @@ const UsersListPage = () => {
         setUsers(data)
     }
 
-    return (
-        <div>
-            <h2>Users</h2>
-        </div>
-    )
+    console.log(users)
+	const DisplayData=users.map(
+		(info)=>{
+			return(
+				<tr>
+					<td>{info.last_name}</td>
+					<td>{info.first_name}</td>
+				</tr>
+			)
+		}
+	)
+	return(
+		<div>
+			<Table striped bordered hover>
+				<thead>
+					<tr>
+					<th>Nachname</th>
+					<th>Vorname</th>
+					</tr>
+				</thead>
+				<tbody>
+				
+					
+					{DisplayData}
+					
+				</tbody>
+            </Table>
+			
+		</div>
+	)
 }
 
-export default UsersListPage
+
+export default UsersListPage;
