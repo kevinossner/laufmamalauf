@@ -7,6 +7,10 @@ class User(models.Model):
 
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    status = models.CharField(
+        max_length=1, choices=[('1', 'nicht bezahlt'), ('2', 'bezahlt')],
+        default='1'
+    )
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self) -> str:

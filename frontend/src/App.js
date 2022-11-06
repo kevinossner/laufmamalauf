@@ -1,24 +1,26 @@
-import {
-  HashRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
 
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import Header from './components/Header'
-import UsersListPage from './pages/UsersListPage'
+import Navigation from './components/Navigation'
+import HomePage from './pages/HomePage';
+import UsersListPage from './pages/UsersListPage';
+
+
+import React from 'react'
 
 function App() {
   return (
     <Router>
-      <div className="App">
-        <Header />
-        <Routes>
-          <Route path="/" exact element={<UsersListPage />} />
+        <div className="App">
+          <Navigation />
+          <Routes>
+                <Route exact path='/' element={< HomePage />}></Route>
+                <Route exact path='/mamas' element={< UsersListPage />}></Route>
         </Routes>
-      </div>
+       </div>
     </Router>
-  );
+);
 }
 
-export default App;
+export default App
+
